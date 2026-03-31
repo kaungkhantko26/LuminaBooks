@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -33,8 +34,21 @@ export default async function BookDetailPage({
         <section className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="relative">
             <div className="absolute inset-8 rounded-full bg-primary/15 blur-[90px]" />
-            <div className="relative overflow-hidden rounded-[2.5rem] shadow-glow">
-              <img src={book.cover_url} alt={book.title} className="aspect-[3/4] w-full object-cover" />
+            <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-surface-container shadow-glow">
+              {book.cover_url ? (
+                <Image
+                  src={book.cover_url}
+                  alt={book.title}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover"
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center px-8 text-center text-on-surface-variant">
+                  Cover unavailable
+                </div>
+              )}
             </div>
           </div>
 

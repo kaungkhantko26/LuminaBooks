@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 
 import { BookCard } from "@/components/book-card";
 import type { Book } from "@/lib/types";
@@ -8,27 +8,35 @@ import type { Book } from "@/lib/types";
 export function DiscoverBooks({ books }: { books: Book[] }) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const deferredQuery = useDeferredValue(query);
 
   const categories = useMemo(
     () => ["All", ...new Set(books.map((book) => book.category))],
     [books]
   );
 
-  const filteredBooks = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
+  const indexedBooks = useMemo(
+    () =>
+      books.map((book) => ({
+        book,
+        searchText: [book.title, book.author, book.category, book.description].join(" ").toLowerCase()
+      })),
+    [books]
+  );
 
-    return books.filter((book) => {
+  const filteredBooks = useMemo(() => {
+    const normalizedQuery = deferredQuery.trim().toLowerCase();
+
+    return indexedBooks
+      .filter(({ book, searchText }) => {
       const matchesCategory = activeCategory === "All" || book.category === activeCategory;
       const matchesQuery =
-        normalizedQuery.length === 0 ||
-        [book.title, book.author, book.category, book.description]
-          .join(" ")
-          .toLowerCase()
-          .includes(normalizedQuery);
+          normalizedQuery.length === 0 || searchText.includes(normalizedQuery);
 
-      return matchesCategory && matchesQuery;
-    });
-  }, [activeCategory, books, query]);
+        return matchesCategory && matchesQuery;
+      })
+      .map(({ book }) => book);
+  }, [activeCategory, deferredQuery, indexedBooks]);
 
   return (
     <main>

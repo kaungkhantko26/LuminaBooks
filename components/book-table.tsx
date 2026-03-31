@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -62,11 +63,21 @@ export function BookTable({ books, previewMode }: { books: Book[]; previewMode: 
               <tr key={book.id}>
                 <td className="py-5 pr-4">
                   <div className="flex items-center gap-4">
-                    <img
-                      src={book.cover_url}
-                      alt={book.title}
-                      className="h-16 w-12 rounded-xl object-cover shadow-sm"
-                    />
+                    <div className="relative h-16 w-12 overflow-hidden rounded-xl bg-surface-container shadow-sm">
+                      {book.cover_url ? (
+                        <Image
+                          src={book.cover_url}
+                          alt={book.title}
+                          fill
+                          sizes="48px"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full items-center justify-center px-1 text-center text-[10px] font-medium text-on-surface-variant">
+                          No cover
+                        </div>
+                      )}
+                    </div>
                     <div>
                       <p className="font-heading text-lg font-bold text-on-surface">{book.title}</p>
                       <p className="text-sm text-on-surface-variant">{book.author}</p>

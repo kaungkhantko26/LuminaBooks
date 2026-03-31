@@ -53,6 +53,58 @@ async function uploadFile(
   return data.publicUrl;
 }
 
+async function optimizeCoverImage(file: File) {
+  if (!file.type.startsWith("image/")) {
+    return file;
+  }
+
+  if (file.type === "image/webp" && file.size <= 500 * 1024) {
+    return file;
+  }
+
+  const objectUrl = URL.createObjectURL(file);
+
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const nextImage = new window.Image();
+      nextImage.onload = () => resolve(nextImage);
+      nextImage.onerror = () => reject(new Error("Failed to process the cover image."));
+      nextImage.src = objectUrl;
+    });
+
+    const maxWidth = 1200;
+    const scale = image.width > maxWidth ? maxWidth / image.width : 1;
+    const canvas = document.createElement("canvas");
+
+    canvas.width = Math.max(1, Math.round(image.width * scale));
+    canvas.height = Math.max(1, Math.round(image.height * scale));
+
+    const context = canvas.getContext("2d");
+
+    if (!context) {
+      return file;
+    }
+
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+    const optimizedBlob = await new Promise<Blob | null>((resolve) => {
+      canvas.toBlob(resolve, "image/webp", 0.82);
+    });
+
+    if (!optimizedBlob || optimizedBlob.size >= file.size) {
+      return file;
+    }
+
+    const fileBaseName = file.name.replace(/\.[^.]+$/, "");
+    return new File([optimizedBlob], `${fileBaseName}.webp`, {
+      type: "image/webp",
+      lastModified: Date.now()
+    });
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
+}
+
 export function BookForm({ mode, book, previewMode }: BookFormProps) {
   const router = useRouter();
   const [values, setValues] = useState<BookFormValues>(getInitialValues(book));
@@ -61,6 +113,7 @@ export function BookForm({ mode, book, previewMode }: BookFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
 
   const heading = useMemo(
     () => (mode === "create" ? "Register a new title" : "Update the existing record"),
@@ -80,14 +133,20 @@ export function BookForm({ mode, book, previewMode }: BookFormProps) {
     }
 
     setSaving(true);
+    setStatus(coverFile ? "Optimizing cover image..." : "Preparing upload...");
 
     try {
-      const nextCoverUrl = coverFile
-        ? await uploadFile(supabase, "book-covers", coverFile, "covers", values.title)
-        : values.cover_url;
-      const nextFileUrl = bookFile
-        ? await uploadFile(supabase, "book-files", bookFile, "files", values.title)
-        : values.file_url;
+      const optimizedCoverFile = coverFile ? await optimizeCoverImage(coverFile) : null;
+      setStatus("Uploading files...");
+
+      const [nextCoverUrl, nextFileUrl] = await Promise.all([
+        optimizedCoverFile
+          ? uploadFile(supabase, "book-covers", optimizedCoverFile, "covers", values.title)
+          : Promise.resolve(values.cover_url),
+        bookFile
+          ? uploadFile(supabase, "book-files", bookFile, "files", values.title)
+          : Promise.resolve(values.file_url)
+      ]);
 
       const payload = {
         title: values.title,
@@ -106,6 +165,7 @@ export function BookForm({ mode, book, previewMode }: BookFormProps) {
         file_url: nextFileUrl,
         is_published: values.is_published
       };
+      setStatus("Saving book record...");
 
       const query =
         mode === "create"
@@ -118,6 +178,7 @@ export function BookForm({ mode, book, previewMode }: BookFormProps) {
         throw saveError;
       }
 
+      setStatus("Finishing...");
       setSuccess(mode === "create" ? "Book created successfully." : "Book updated successfully.");
       router.replace("/admin/books");
       router.refresh();
@@ -125,6 +186,7 @@ export function BookForm({ mode, book, previewMode }: BookFormProps) {
       setError(caughtError instanceof Error ? caughtError.message : "Something went wrong.");
     } finally {
       setSaving(false);
+      setStatus(null);
     }
   }
 
@@ -305,6 +367,11 @@ export function BookForm({ mode, book, previewMode }: BookFormProps) {
         {success ? (
           <div className="rounded-[1.5rem] bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
             {success}
+          </div>
+        ) : null}
+        {status ? (
+          <div className="rounded-[1.5rem] bg-surface-container px-4 py-3 text-sm font-medium text-on-surface-variant">
+            {status}
           </div>
         ) : null}
 
