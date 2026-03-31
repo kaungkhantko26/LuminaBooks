@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
@@ -16,8 +16,28 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Lumina Library",
-  description: "A mini SaaS-style book platform with a public catalog and admin CMS."
+  title: "LuminaBooks",
+  description: "A mini SaaS-style book platform with a public catalog and admin CMS.",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "64x64" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"]
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "LuminaBooks"
+  }
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a2956"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

@@ -1,0 +1,20 @@
+{
+  "name": "LuminaBooks",
+  "short_name": "LuminaBooks",
+  "description": "A premium digital library for discovering and managing books.",
+  "theme_color": "#0a2956",
+  "background_color": "#071a3a",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
