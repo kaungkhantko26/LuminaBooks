@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Library | Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#004c69",
+              "on-primary-fixed": "#23005c",
+              "tertiary": "#006387",
+              "tertiary-container": "#007da9",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#001e2c",
+              "surface-container-low": "#edf4ff",
+              "on-secondary-fixed-variant": "#85145a",
+              "inverse-on-surface": "#e8f2ff",
+              "primary-fixed-dim": "#d0bcff",
+              "inverse-primary": "#d0bcff",
+              "surface-container": "#e4effd",
+              "surface-variant": "#d9e3f1",
+              "on-background": "#121d26",
+              "on-surface-variant": "#494454",
+              "secondary": "#a43073",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#e9ddff",
+              "surface-dim": "#d1dbe8",
+              "outline": "#7b7486",
+              "surface-container-high": "#dfe9f7",
+              "on-secondary": "#ffffff",
+              "background": "#f7f9ff",
+              "on-primary-container": "#fffbff",
+              "secondary-fixed": "#ffd8e7",
+              "surface-tint": "#6d3bd7",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#3d0026",
+              "on-surface": "#121d26",
+              "outline-variant": "#cbc3d7",
+              "surface-bright": "#f7f9ff",
+              "surface-container-highest": "#d9e3f1",
+              "on-tertiary-container": "#fcfcff",
+              "on-primary-fixed-variant": "#5516be",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#ffafd3",
+              "inverse-surface": "#27313c",
+              "on-secondary-container": "#76014e",
+              "secondary-container": "#fc79bd",
+              "primary-container": "#8455ef",
+              "tertiary-fixed": "#c4e7ff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#7bd0ff",
+              "on-error-container": "#93000a",
+              "primary": "#6b38d4",
+              "surface": "#f7f9ff",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #f7f9ff;
+        color: #121d26;
+      }
+      h1, h2, h3, .brand-font {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface">
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 bg-gradient-to-b from-[#6b38d4] to-[#4c22a3] h-screen w-64 rounded-r-[3rem] shadow-2xl z-50">
+<div class="px-8 mb-12">
+<h1 class="text-xl font-bold text-white font-headline">Lumina Admin</h1>
+<p class="text-white/60 text-xs font-label mt-1">Curator Portal</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-4 bg-white/20 text-white border-l-4 border-[#F472B6] px-4 py-3 rounded-r-full transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-plus-jakarta text-base">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 transition-colors duration-200 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+<span class="font-plus-jakarta text-base">Add Book</span>
+</a>
+<a class="flex items-center gap-4 text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 transition-colors duration-200 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-plus-jakarta text-base">Manage Books</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<div class="px-4 py-6 mb-6 flex items-center gap-3 bg-white/5 rounded-2xl">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-white/20">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional curator with a friendly expression in a high-end minimalist office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA5_aeSX5UsGDmitkPcOFH5wrjOXxfBInkcG5jnfXxR94Js3BeqpMoc7XDSd4aPuClvZUt5v7M6UWMPjrn8A86yDSouzuCy-ffldiZLhLQeKGBtK9vBpNeA54wPIrGn__RYSIr_ng96Du3sOUa-2uum3A4EGKVZc7RVtDAsUHun1DEVdIGA7nmEa0TFqVB58-GbB7rt82fBMC-atCC9mNYCtp0V5dNN_hDLKdnnJn0wYins7LrsWU9AX5NuIe6Oe9jKH3TX5sz7p4"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-white text-sm font-bold truncate">Alex Curator</p>
+<p class="text-white/50 text-xs truncate">Head Librarian</p>
+</div>
+</div>
+<a class="flex items-center gap-4 text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 transition-colors duration-200 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-plus-jakarta text-base">Logout</span>
+</a>
+</div>
+</aside>
+<main class="ml-64 p-12 min-h-screen bg-surface">
+<header class="mb-12 flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface font-headline mb-2">Library Overview</h2>
+<p class="text-on-surface-variant font-body">Welcome back. Here is what's happening in your archive today.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-full bg-surface-container-high text-primary font-bold transition-all hover:bg-surface-container-highest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="file_download">file_download</span>
+                    Export Data
+                </button>
+<button class="px-6 py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] text-white font-bold shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-95">
+                    + New Collection
+                </button>
+</div>
+</header>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<div class="relative group overflow-hidden p-8 rounded-xl bg-white shadow-[0_20px_40px_-12px_rgba(18,29,38,0.06)] transition-all hover:translate-y-[-4px]">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+<div class="flex flex-col h-full justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary p-3 bg-primary/10 rounded-2xl" data-icon="menu_book">menu_book</span>
+<span class="text-xs font-bold text-primary px-3 py-1 bg-primary/10 rounded-full">+12% this month</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-1">Total Books</p>
+<h3 class="text-5xl font-black text-on-surface font-headline">14,284</h3>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%]"></div>
+</div>
+</div>
+</div>
+<div class="relative group overflow-hidden p-8 rounded-xl bg-white shadow-[0_20px_40px_-12px_rgba(18,29,38,0.06)] transition-all hover:translate-y-[-4px]">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+<div class="flex flex-col h-full justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary p-3 bg-secondary/10 rounded-2xl" data-icon="cloud_upload">cloud_upload</span>
+<span class="text-xs font-bold text-secondary px-3 py-1 bg-secondary/10 rounded-full">Active Sync</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-1">Recent Uploads</p>
+<h3 class="text-5xl font-black text-on-surface font-headline">842</h3>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[45%]"></div>
+</div>
+</div>
+</div>
+<div class="relative group overflow-hidden p-8 rounded-xl bg-white shadow-[0_20px_40px_-12px_rgba(18,29,38,0.06)] transition-all hover:translate-y-[-4px]">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+<div class="flex flex-col h-full justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary p-3 bg-tertiary/10 rounded-2xl" data-icon="database">database</span>
+<span class="text-xs font-bold text-tertiary px-3 py-1 bg-tertiary/10 rounded-full">82% Capacity</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm font-label uppercase tracking-widest mb-1">Storage Used</p>
+<h3 class="text-5xl font-black text-on-surface font-headline">2.4<span class="text-2xl ml-1 opacity-40">TB</span></h3>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[82%]"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-2">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl font-bold font-headline">Recent Books Added</h3>
+<a class="text-primary text-sm font-bold hover:underline" href="#">View All Library</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 p-6 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-low group">
+<div class="w-16 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high shadow-sm">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="artistic book cover for a digital design publication with vibrant purple and pink geometric patterns and bold serif typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyb9fYjuHAu6FN4rWsFU3VKJ1rPRBcbEyvH353Hw2j3BsnD6YtfozkOaPyNlrlMhBJTryAJTeUiWGr0jdpDU9y94l-yqRjirYQgASI444VeVVYGboviyY3szh4GXwhQZVKV-Rf4OGN149WyUGA4f-4360mn7YlStEXEvdWXCyd3rpTIBA3IHjvrVk-lrBN93bz6dCpw68SW91T3W1KyuZbroUMvoylrBmbuWx_iaqLeZtV8_-j9F7BrlSUHHwpCVn4nOBbmPHTz3o"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg group-hover:text-primary transition-colors">The Architecture of Silence</h4>
+<p class="text-on-surface-variant text-sm font-body">by Julian Valenti • Added 2h ago</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-3 py-1 rounded-full bg-secondary-container/20 text-on-secondary-container text-xs font-bold mb-2">Premium</span>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-low group">
+<div class="w-16 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high shadow-sm">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="creative coffee table book cover showing minimalist watercolor strokes in teal and gold against a cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3XTdXFU0wFQUObaNWu7s6pghSvn4c9M2Q1gcHeDRTcpIiyVcjIDkMEroVW-9bab5qa7dFQvTCC38SWpIz53UcrgTZEQ0xfw8bucGVqL8cnf4uOk2113gl_5GxXud0Imz0_i6BDgealCx56piqvWfUcyq8s-NOMAHZvJ4K2d3WU5xo3HjV0Zk0-5lkOHjy6Jfsa8W73W0xbzVP3ivW3fsazA18wkg1H7DivrrvIqyNCa6OIV3DC4cnwUZLQE5cku21vwryryezzTI"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg group-hover:text-primary transition-colors">Digital Minimalism &amp; Form</h4>
+<p class="text-on-surface-variant text-sm font-body">by Sarah Chen • Added 5h ago</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed/30 text-on-tertiary-fixed-variant text-xs font-bold mb-2">Open Access</span>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 p-6 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-low group">
+<div class="w-16 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high shadow-sm">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="modern scientific journal cover featuring a stylized glowing double helix in neon blue and violet over a dark textured canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABkBr4uu9Gg3vTeMwgk5Z88FSuRDGeF3JVgQDJXuyY3iALWsy8VcsdxS2LCN15kiCM4Zx9NGJmADz0gWmixZBJ7oU3rqoUiYq91cCR6tJDI5fufbyilWiWexAj6RixZGaFMDwuyiPQ0aErrahy8GIq-ZHC1vhoWlo_0sF45c3IajBUE_3wQm_WeqzmmqtT7hXfIFmGkRmNkJALML6EmYufOoKy3VtAVID8kaS2GrfmLb7B1SE55V1wizxQ6KlQPkse_tYy1EOpk4w"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg group-hover:text-primary transition-colors">Synthetic Realism in Biology</h4>
+<p class="text-on-surface-variant text-sm font-body">by Dr. Marcus Thorne • Added Yesterday</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-xs font-bold mb-2">Reference</span>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="p-8 rounded-xl bg-white shadow-[0_20px_40px_-12px_rgba(18,29,38,0.06)]">
+<h3 class="text-xl font-bold font-headline mb-6">Recent Activities</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">New collection 'Modernism' created</p>
+<p class="text-xs text-on-surface-variant">Admin • 14 mins ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Storage limit notification: 80% reached</p>
+<p class="text-xs text-on-surface-variant">System • 1 hour ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-tertiary mt-2"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Bulk upload: 124 PDF files processed</p>
+<p class="text-xs text-on-surface-variant">Alex Curator • 3 hours ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-slate-300 mt-2"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Database backup completed successfully</p>
+<p class="text-xs text-on-surface-variant">System • 5 hours ago</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 rounded-full border-2 border-surface-container-high text-on-surface-variant text-sm font-bold hover:bg-surface-container-low transition-colors">
+                        View Audit Log
+                    </button>
+</div>
+<div class="p-8 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#F472B6] text-white shadow-xl overflow-hidden relative">
+<div class="absolute -right-4 -bottom-4 opacity-20">
+<span class="material-symbols-outlined text-[120px]" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">Upgrade Storage</h3>
+<p class="text-white/80 text-sm mb-6 leading-relaxed">You're approaching your limit. Upgrade now for unlimited archive space.</p>
+<button class="px-6 py-2 bg-white text-primary rounded-full text-sm font-bold shadow-md hover:scale-105 transition-transform">
+                        Explore Plans
+                    </button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

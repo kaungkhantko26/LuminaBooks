@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Library | Discover Your Next Story</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-fixed-variant": "#004c69",
+                "on-primary-fixed": "#23005c",
+                "tertiary": "#006387",
+                "tertiary-container": "#007da9",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-fixed": "#001e2c",
+                "surface-container-low": "#edf4ff",
+                "on-secondary-fixed-variant": "#85145a",
+                "inverse-on-surface": "#e8f2ff",
+                "primary-fixed-dim": "#d0bcff",
+                "inverse-primary": "#d0bcff",
+                "surface-container": "#e4effd",
+                "surface-variant": "#d9e3f1",
+                "on-background": "#121d26",
+                "on-surface-variant": "#494454",
+                "secondary": "#a43073",
+                "on-primary": "#ffffff",
+                "primary-fixed": "#e9ddff",
+                "surface-dim": "#d1dbe8",
+                "outline": "#7b7486",
+                "surface-container-high": "#dfe9f7",
+                "on-secondary": "#ffffff",
+                "background": "#f7f9ff",
+                "on-primary-container": "#fffbff",
+                "secondary-fixed": "#ffd8e7",
+                "surface-tint": "#6d3bd7",
+                "error": "#ba1a1a",
+                "on-secondary-fixed": "#3d0026",
+                "on-surface": "#121d26",
+                "outline-variant": "#cbc3d7",
+                "surface-bright": "#f7f9ff",
+                "surface-container-highest": "#d9e3f1",
+                "on-tertiary-container": "#fcfcff",
+                "on-primary-fixed-variant": "#5516be",
+                "on-error": "#ffffff",
+                "secondary-fixed-dim": "#ffafd3",
+                "inverse-surface": "#27313c",
+                "on-secondary-container": "#76014e",
+                "secondary-container": "#fc79bd",
+                "primary-container": "#8455ef",
+                "tertiary-fixed": "#c4e7ff",
+                "error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#7bd0ff",
+                "on-error-container": "#93000a",
+                "primary": "#6b38d4",
+                "surface": "#f7f9ff",
+                "on-tertiary": "#ffffff"
+              },
+              fontFamily: {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Manrope"],
+                "label": ["Manrope"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, #8B5CF6, #F472B6);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_20px_40px_-12px_rgba(18,29,38,0.08)]">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] bg-clip-text text-transparent font-headline">Lumina Library</span>
+<div class="hidden md:flex items-center gap-8 font-headline text-sm font-medium tracking-tight">
+<a class="text-violet-700 dark:text-violet-300 font-bold border-b-2 border-violet-500 pb-1" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-violet-500 transition-all duration-300" href="#">Catalog</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-violet-500 transition-all duration-300" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-full font-headline text-sm font-semibold brand-gradient text-white hover:scale-95 active:scale-90 transition-transform duration-300">
+                Sign In
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-8 pb-20 pt-12">
+<div class="relative overflow-hidden rounded-xl h-[500px] flex flex-col items-center justify-center text-center px-4 brand-gradient shadow-2xl">
+<div class="absolute inset-0 opacity-20 pointer-events-none" data-alt="Subtle abstract mesh gradient with floating soft light orbs in shades of lavender and rose gold"></div>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-white mb-8 max-w-4xl tracking-tight leading-tight">
+                    Discover Your Next Favorite Book 📖
+                </h1>
+<div class="w-full max-w-2xl relative group">
+<div class="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">search</span>
+</div>
+<input class="w-full bg-white/95 backdrop-blur-md border-none h-16 pl-16 pr-8 rounded-full text-on-surface placeholder:text-slate-400 shadow-xl focus:ring-4 focus:ring-white/20 transition-all outline-none" placeholder="Search by title, author, or genre..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Floating Categories Bar -->
+<section class="sticky top-20 z-40 px-8 mb-12">
+<div class="flex justify-center">
+<div class="flex items-center gap-3 bg-white/80 backdrop-blur-xl p-3 rounded-full shadow-[0_10px_30px_-10px_rgba(107,56,212,0.15)] overflow-x-auto no-scrollbar max-w-full">
+<span class="px-5 py-2 bg-primary text-white rounded-full text-sm font-bold whitespace-nowrap cursor-pointer">All Genres</span>
+<span class="px-5 py-2 bg-secondary-fixed text-on-secondary-container rounded-full text-sm font-medium whitespace-nowrap cursor-pointer hover:bg-secondary-container transition-colors">Fiction</span>
+<span class="px-5 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-sm font-medium whitespace-nowrap cursor-pointer hover:bg-primary-fixed transition-colors">Technology</span>
+<span class="px-5 py-2 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-sm font-medium whitespace-nowrap cursor-pointer hover:bg-tertiary-fixed-dim transition-colors">Philosophy</span>
+<span class="px-5 py-2 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-sm font-medium whitespace-nowrap cursor-pointer hover:bg-secondary-fixed-dim transition-colors">Mystery</span>
+<span class="px-5 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-sm font-medium whitespace-nowrap cursor-pointer hover:bg-primary-fixed transition-colors">History</span>
+<span class="px-5 py-2 bg-tertiary-fixed text-on-tertiary-container rounded-full text-sm font-medium whitespace-nowrap cursor-pointer hover:bg-tertiary-fixed-dim transition-colors">Biography</span>
+</div>
+</div>
+</section>
+<!-- Book Grid Section -->
+<section class="px-8 pb-24 max-w-[1440px] mx-auto">
+<div class="flex items-end justify-between mb-12">
+<div class="max-w-xl">
+<h2 class="font-headline text-display-sm font-extrabold text-on-surface mb-2">Curated for You</h2>
+<p class="text-slate-500 font-medium">Hand-picked treasures from our vast digital archive, selected by our expert curators.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-4 rounded-full bg-white text-primary shadow-sm hover:shadow-md transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-4 rounded-full bg-surface-container text-on-surface-variant shadow-sm hover:shadow-md transition-all">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Book Card 1 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-12px_rgba(107,56,212,0.12)]">
+<div class="relative aspect-[3/4] mb-6 rounded-lg overflow-hidden bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Modern book cover design for a minimalist architecture book with elegant typography and clean white space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBBJ7Ux39doDdYcXrewyhW7wdW7ViYoe3Yl-sG8r8rD5n4FLlMUXxAISci7w9zHYBiFc-nYKt643h9tpoka_fM8GAbDNXrLgHfwvBgIyZfMG0WBf_WmRxlcGpP4MDko_CsbwJgCXr-p-Z1-on-m7mAgx7NPJ5swDn-9IvDFey8NS7sZ9Xy-ZBLbtqHPkIRjaUiafhcUjnWPUfumoa8UAmhXnEcv6GWSoHl-CcbbFE0LyjGvBX-4hVm0SvgNQgyXCP-eWKZItQJ96A"/>
+<div class="absolute top-3 right-3">
+<button class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-secondary hover:text-white hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary bg-secondary-fixed px-2 py-0.5 rounded">New Arrival</span>
+</div>
+<h3 class="font-headline text-lg font-bold text-on-surface line-clamp-1">The Art of Stillness</h3>
+<p class="text-sm font-medium text-slate-500">Pico Iyer</p>
+<div class="flex items-center gap-2 pt-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span class="text-sm">4.9/5.0</span>
+</div>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-12px_rgba(107,56,212,0.12)]">
+<div class="relative aspect-[3/4] mb-6 rounded-lg overflow-hidden bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Classic leather bound novel lying on an antique wooden desk in a sun-drenched library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxUUiUW3BcvtnaThMN9Qnlb5eUZKptFRQ8qUDdRlTW8T33Ha942IGCbC_Fucudm2cwm1mugtxyTIIZ8tQah5Y6QZ_QI5K4hV9dJGubXbMRKnAfKtQyMLfGPwyxVXxOq4T7YsV4r3CieNYJ_sMmr7gOpZ3OcD-gqaePKNa980m7cPQJuTZ4ZVI2FsVlS_E8zhTAHOqzxQR30_z_gsAsT1030mT2_IwRew-evMdbruVZgr8gtCV6d4-pb01Qnxxzd4kXx7R5-tKCaDA"/>
+<div class="absolute top-3 right-3">
+<button class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-slate-400 hover:text-white hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded">Bestseller</span>
+</div>
+<h3 class="font-headline text-lg font-bold text-on-surface line-clamp-1">The Silent Patient</h3>
+<p class="text-sm font-medium text-slate-500">Alex Michaelides</p>
+<div class="flex items-center gap-2 pt-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span class="text-sm">4.7/5.0</span>
+</div>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-12px_rgba(107,56,212,0.12)]">
+<div class="relative aspect-[3/4] mb-6 rounded-lg overflow-hidden bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Artistic book cover with teal and gold marble patterns, elegant serif typography for a fantasy novel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnjNANmX6qwWZq-LfDWAwCcwFAOnNqT0qftARwXgAalo_ZufN0Wh9IP8C9GKJRk4lOk1lm18IVsM8zo1InYgV9K8BIa3Ekrie6cXWDdyuYQhQCfhmv7f_LZCBgpNbZlqJczDFMdVjNzjRlaQzRC_Y60qbXnXF0pta1QBH5NXvThcbN5uyKLtInaLwv6ZUXAtQV64n_a9Mw-CTqZMpDHl5hGniI_4_kbiChRDCuiRLZDRZNdt_K3gFeTI68Bgxe2OSXOQ3-AKkD-MQ"/>
+<div class="absolute top-3 right-3">
+<button class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-slate-400 hover:text-white hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-primary-fixed-variant bg-primary-fixed px-2 py-0.5 rounded">Editor's Pick</span>
+</div>
+<h3 class="font-headline text-lg font-bold text-on-surface line-clamp-1">Circe</h3>
+<p class="text-sm font-medium text-slate-500">Madeline Miller</p>
+<div class="flex items-center gap-2 pt-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span class="text-sm">4.8/5.0</span>
+</div>
+</div>
+</div>
+<!-- Book Card 4 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-12px_rgba(107,56,212,0.12)]">
+<div class="relative aspect-[3/4] mb-6 rounded-lg overflow-hidden bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Scientific and futuristic book cover with glowing neural network diagrams and sleek blue tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRfBgYwvwL4zShLNobcUT5OJk3zd6eq_Lp_19Cgc5fgJB7rY9oTvFYUvLKHy2uF_74QDj8HVKASLErLUKHk_BjzN6T1ZfHTNbZ8dYQecs1JWXbSSeBw6nhIGTcOum1N4R5C7Mth39WFuw56iRXqeRpqGb6Mu2Oys6x-ioNfuVvG6zdUNwUhzE2_lHpdORxlLMN9RUMtqdxlgtKeO0UhT1VSYHylmKOBiFsPmNvI7DV1pjj0AIn3TQvmDEGuCmZRsUFOZl6BcQNr94"/>
+<div class="absolute top-3 right-3">
+<button class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-slate-400 hover:text-white hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded">Trending</span>
+</div>
+<h3 class="font-headline text-lg font-bold text-on-surface line-clamp-1">Klara and the Sun</h3>
+<p class="text-sm font-medium text-slate-500">Kazuo Ishiguro</p>
+<div class="flex items-center gap-2 pt-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span class="text-sm">4.6/5.0</span>
+</div>
+</div>
+</div>
+</div>
+<!-- More Button -->
+<div class="mt-16 flex justify-center">
+<button class="group flex items-center gap-3 px-8 py-4 bg-white font-headline font-bold text-primary rounded-full shadow-lg hover:shadow-xl hover:bg-primary hover:text-white transition-all duration-300">
+                    Browse Full Library
+                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Newsletter / Featured Section (Editorial Style) -->
+<section class="px-8 pb-24 max-w-[1440px] mx-auto">
+<div class="relative bg-surface-container-low rounded-xl overflow-hidden p-12 md:p-20 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-6">
+<span class="text-primary font-bold tracking-widest uppercase text-xs">Library Insider</span>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-surface leading-tight">Join our community of bibliophiles</h2>
+<p class="text-lg text-slate-600 max-w-lg">Get personalized recommendations, early access to new releases, and invites to author Q&amp;A sessions delivered directly to your inbox.</p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-md">
+<input class="flex-1 h-14 px-6 rounded-full bg-white border-none focus:ring-2 focus:ring-primary shadow-sm outline-none" placeholder="Enter your email address" type="email"/>
+<button class="h-14 px-8 rounded-full brand-gradient text-white font-bold hover:opacity-90 transition-opacity whitespace-nowrap">Subscribe</button>
+</div>
+</div>
+<div class="flex-1 relative w-full h-[300px] md:h-auto">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4 pt-12">
+<div class="h-48 rounded-lg bg-white shadow-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Stack of minimalist aesthetic books on a white linen surface with a cup of coffee nearby" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-HweWGOS4o1m4tnOZbpZ5ziRd0qNFlQAVNcDl1G2Sw6bTQ5AN0bX7Nnul4G_mRC-JB94900QtN1DVH72EnGnxzvklTsMQeyzBB_Wf2ExMfTQRDuCv8D9q1pzt_QnswXXwr_m_PZCr3ZdR_yySzA1TNKyy7LsZCJaeDzJcbsJhp0rwsOf3J7QNWc-SkZFeLr_O70Jbmupyv6e_Qe32OfvqwPpY7ODrRCzmZtaWhVJ0tqkwdOgbmdpIBefGUJPv7-8r0H3mTaAMNbM"/>
+</div>
+<div class="h-32 rounded-lg bg-secondary-fixed shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary">auto_stories</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="h-32 rounded-lg bg-primary-fixed shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary">local_library</span>
+</div>
+<div class="h-48 rounded-lg bg-white shadow-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of an open book with soft natural light hitting the pages in a cozy interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkzXC0-THy9A-Uiiy2e3LHpEg0gFjC_Dg9jrMTsF0IrwxouDW5IZehAeDYTxDHp60XN4RLFPwOvFrBpMgmWyNTbhQfBjjTyolx60laAusW-CjKRV35bS1-C3wl7YC7QDaR1ef_sGiBnLswZdKxO_nOpWaPKajQpz3AZGK1ss2maI7nRoxppUgf1g2KfxRLN5IUZ9F8CqO2uugPGPLukpoTTtNCOi9bmYJ4Na5pcLwQFKNrzuqw2FomHqwSDRTmlDUd5vPAlRzcE84"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface text-white py-20 px-8">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-6">
+<span class="text-2xl font-black bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] bg-clip-text text-transparent font-headline">Lumina Library</span>
+<p class="text-slate-400 leading-relaxed">Dedicated to the preservation and celebration of human stories. Your digital portal to the world's greatest literature.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline font-bold text-lg">Explore</h4>
+<ul class="space-y-3 text-slate-400">
+<li><a class="hover:text-white transition-colors" href="#">Collections</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Rare Books</a></li>
+<li><a class="hover:text-white transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline font-bold text-lg">Support</h4>
+<ul class="space-y-3 text-slate-400">
+<li><a class="hover:text-white transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Membership</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Borrowing Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline font-bold text-lg">Download</h4>
+<p class="text-slate-400">Take your library everywhere. Lumina is available on iOS and Android.</p>
+<div class="space-y-3">
+<button class="w-full h-12 rounded-lg border border-slate-700 flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">ios</span>
+<span>App Store</span>
+</button>
+<button class="w-full h-12 rounded-lg border border-slate-700 flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+<span>Google Play</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto pt-20 mt-20 border-t border-slate-800 text-center text-slate-500 text-sm">
+<p>© 2024 Lumina Digital Library. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

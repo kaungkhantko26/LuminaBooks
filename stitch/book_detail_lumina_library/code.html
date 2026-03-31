@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Details | Lumina Library</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#004c69",
+              "on-primary-fixed": "#23005c",
+              "tertiary": "#006387",
+              "tertiary-container": "#007da9",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#001e2c",
+              "surface-container-low": "#edf4ff",
+              "on-secondary-fixed-variant": "#85145a",
+              "inverse-on-surface": "#e8f2ff",
+              "primary-fixed-dim": "#d0bcff",
+              "inverse-primary": "#d0bcff",
+              "surface-container": "#e4effd",
+              "surface-variant": "#d9e3f1",
+              "on-background": "#121d26",
+              "on-surface-variant": "#494454",
+              "secondary": "#a43073",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#e9ddff",
+              "surface-dim": "#d1dbe8",
+              "outline": "#7b7486",
+              "surface-container-high": "#dfe9f7",
+              "on-secondary": "#ffffff",
+              "background": "#f7f9ff",
+              "on-primary-container": "#fffbff",
+              "secondary-fixed": "#ffd8e7",
+              "surface-tint": "#6d3bd7",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#3d0026",
+              "on-surface": "#121d26",
+              "outline-variant": "#cbc3d7",
+              "surface-bright": "#f7f9ff",
+              "surface-container-highest": "#d9e3f1",
+              "on-tertiary-container": "#fcfcff",
+              "on-primary-fixed-variant": "#5516be",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#ffafd3",
+              "inverse-surface": "#27313c",
+              "on-secondary-container": "#76014e",
+              "secondary-container": "#fc79bd",
+              "primary-container": "#8455ef",
+              "tertiary-fixed": "#c4e7ff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#7bd0ff",
+              "on-error-container": "#93000a",
+              "primary": "#6b38d4",
+              "surface": "#f7f9ff",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+      }
+      h1, h2, h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_-12px_rgba(18,29,38,0.08)]">
+<div class="flex items-center gap-12">
+<a class="text-2xl font-black bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] bg-clip-text text-transparent" href="#">Lumina Library</a>
+<nav class="hidden md:flex items-center gap-8 font-plus-jakarta text-sm font-medium tracking-tight">
+<a class="text-slate-600 hover:text-violet-500 transition-all duration-300" href="#">Home</a>
+<!-- Active State Logic: Catalog active as we are in book details -->
+<a class="text-violet-700 font-bold border-b-2 border-violet-500 pb-1" href="#">Catalog</a>
+<a class="text-slate-600 hover:text-violet-500 transition-all duration-300" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-50/50 transition-all duration-300">
+<span class="material-symbols-outlined text-slate-600" data-icon="search">search</span>
+</button>
+<button class="bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:scale-95 active:scale-90 transition-transform">
+                Sign In
+            </button>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-2 mb-12 text-on-surface-variant font-medium text-sm">
+<a class="hover:text-primary transition-colors" href="#">Catalog</a>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Philosophy &amp; Ethics</a>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary-fixed-variant">Beyond the Horizon</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Left Column: Book Cover -->
+<div class="lg:col-span-5 relative group">
+<!-- Soft Glow Shadow -->
+<div class="absolute -inset-4 bg-primary/10 blur-[60px] rounded-full opacity-50"></div>
+<div class="relative overflow-hidden rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+<img alt="Beyond the Horizon Book Cover" class="w-full aspect-[3/4] object-cover" data-alt="Stunning artistic book cover featuring a surreal cosmic sunset with deep violets and pinks, gold foil lettering 'Beyond the Horizon', elegant minimalist design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_9SAEBbq08E7QUVxT0iLzaG6su_uVWn_X7uZmCmjwy_-KJYxf6oOH3E1_KxhPh9XI-F5rTBb7xU71EG46YQmYY5IZBhOiM4YklBygBuiWR7aP6tkBCBTO5oVzA86uDWCJ5lV7bpMipgKfzg9nqq6P7bFyF5lniACW065_uHb0MJesgvsUGxHoEPKqA_nzyUmrk0Mg8oriL2pBpZCrSDBVSwZtXdiKoGHF8SFI_Y9eoabIvQon-VJ1L-kxPh2WghuRH1MhP9JQi3E"/>
+<!-- Inner-glow effect -->
+<div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl"></div>
+</div>
+<!-- Action Bar Below Cover -->
+<div class="mt-8 flex justify-center gap-6">
+<button class="flex flex-col items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary/10">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</div>
+<span class="text-xs font-semibold">Save</span>
+</button>
+<button class="flex flex-col items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary/10">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</div>
+<span class="text-xs font-semibold">Share</span>
+</button>
+<button class="flex flex-col items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary/10">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</div>
+<span class="text-xs font-semibold">Preview</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Details -->
+<div class="lg:col-span-7 space-y-10">
+<div>
+<span class="inline-block px-4 py-1.5 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full mb-6 tracking-wide">NEW ARRIVAL</span>
+<h1 class="text-6xl font-extrabold text-on-surface leading-[1.1] mb-4 tracking-tight">Beyond the Horizon</h1>
+<p class="text-2xl font-medium text-primary flex items-center gap-3">
+                        by Dr. Elena Vance
+                        <span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-1 text-on-surface-variant text-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.9 (1,240 reviews)
+                        </span>
+</p>
+</div>
+<!-- Metadata Grid (Bento Style) -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Language</p>
+<p class="font-bold text-lg">English</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Length</p>
+<p class="font-bold text-lg">342 Pages</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Format</p>
+<p class="font-bold text-lg">Digital (PDF, ePUB)</p>
+</div>
+</div>
+<div class="space-y-6">
+<h2 class="text-2xl font-bold border-b border-surface-container-highest pb-4">Overview</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed font-medium">
+                        Explore the profound boundaries of human consciousness and the ethical landscapes of tomorrow. Dr. Elena Vance invites you on a transformative journey through speculative philosophy, weaving together scientific rigor with editorial elegance.
+                    </p>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        In this seminal work, Vance challenges our perceptions of reality and digital existence, providing a framework for understanding the "Curator's Era"—a period where information isn't just consumed, but intentionally crafted into meaningful archives.
+                    </p>
+</div>
+<!-- Primary CTA -->
+<div class="pt-6 flex flex-col sm:flex-row items-center gap-6">
+<button class="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] text-white text-lg font-extrabold rounded-full shadow-[0_20px_40px_-12px_rgba(139,92,246,0.4)] hover:shadow-[0_20px_50px_-10px_rgba(139,92,246,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        Download Now
+                    </button>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="text-sm font-semibold">Verified Safe Download</span>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-highest overflow-hidden">
+<img alt="Reader" data-alt="Close-up portrait of a smiling young man in a minimalist studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2WBWdX7L4zv5nWI91S6-9BcbtA_xyHRMy3HqkLMmQk0nOqiMvsnfGDyktdnld1XSJ-nZdZoV7_0P2G8UKtROPAtXQPxL_HN6UY6vJiaJMB-tCGIOMx1ZhjttHHZ9zJMEDX1rgvRqWG6hg33XrLUWVnNn5Nn_Rf5j1dBXBgBWebrzH19d5Qy9dWIADGvVlrPvLHEc_79AE2SRBJ3B0TFJK4_CCImGAoXVmRuobt1cCNdjoI-Bu3Y-zcad06K7HAUeOQFPVwUu6E8g"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-highest overflow-hidden">
+<img alt="Reader" data-alt="Professional woman with glasses looking thoughtful, soft focus library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbuI8h8aqEwbyV6ol6DQlHaN2vpL6qdaBDKdNhVvheZkeKVhIYPNoBbTvFAjPLJn6v6QYJI5vDLzi0KQYNLbjcsb78iQdR8-T4vaUyYtJMH7VHZ5Bhvuk-9JxNc5djQtLV8BdSDACmpR-KczxYXzQwvj_KEkOpAeJKhvQfrcqrjbiZuekDP1NOyvz-mB2pMVeiHNkwDAeGKM5NxNRqW9WxCVWC1j4n5pkrW2DwCmNc6mn01amelHT581WE9mp3HCJ53JpqNE3bpqQ"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary flex items-center justify-center text-[10px] text-white font-bold">
+                                +50k
+                            </div>
+</div>
+</div>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-3 pt-6">
+<span class="px-4 py-2 bg-surface-container text-on-surface-variant text-sm font-semibold rounded-full">Philosophy</span>
+<span class="px-4 py-2 bg-surface-container text-on-surface-variant text-sm font-semibold rounded-full">Futurism</span>
+<span class="px-4 py-2 bg-surface-container text-on-surface-variant text-sm font-semibold rounded-full">Ethics</span>
+<span class="px-4 py-2 bg-surface-container text-on-surface-variant text-sm font-semibold rounded-full">Curated Collection</span>
+</div>
+</div>
+</div>
+<!-- Suggestions / Bento Grid Section -->
+<section class="mt-32">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="text-4xl font-extrabold tracking-tight mb-2">Curated for You</h3>
+<p class="text-on-surface-variant text-lg">Readers who explored 'Beyond the Horizon' also enjoyed:</p>
+</div>
+<button class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                    View Entire Collection <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Book Card 1 -->
+<div class="bg-surface-container-low p-6 rounded-lg group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-lg">
+<img alt="Book Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract book cover with geometric shapes in teal and gold, titled 'The Digital Mind'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsp2sZMo_bcFQoQm1puPoORhFht1_9YOaRUfCXSsHl5g8IGoQnEanInb92iiA763-CDjKmztuo9ceZBYbZByXkPld8Xihxzs7gTkF69yeML1niunnm-mlZEzRqdwjR3-gkY2bWxNH3Kc6-16UVTZgP8EvsrHW0HRkzgkTRnc6EVYXbZGumpW_Mkq1r_6eNEyJno2DLgoK6bZCmzDnP45Fnh9EN2YyicAGClmKXhmiTmsmE53VeSD4eIZGZ_BRaZRasCHYtMHHySLk"/>
+</div>
+<h4 class="text-xl font-bold mb-1">The Digital Mind</h4>
+<p class="text-on-surface-variant font-medium mb-4">by Marcus Thorne</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-xs font-bold text-tertiary uppercase tracking-widest">New Release</span>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="bg-surface-container-low p-6 rounded-lg group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-lg">
+<img alt="Book Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist book cover featuring a single white feather on a deep navy background, titled 'Silence in Echo'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfN1J6f-KeZ_lzRHRNFGFwXtsCC69KgOJ27lX76Y0j0Ch6o7fHwvkjp86eU_FvaIMef3ufdgZk2ujDsqi-iYMFgEhRwE2YHnMiWoQmqfPY2FQR1JrpnE_6nsCLNjkXC4RqvuKggdl-H7n0Lno5fsf3GY8Vzkg3fad6xp5Ilzej0Z2k8emPR3zsgLLtCXlWp6_9P8mGNWN5JB-NsBpFk3_jQ-DlcIlj44frfTMXBxeqsabH0FwfnPlkWj5EVBazDlKVWJ-ibfas1P8"/>
+</div>
+<h4 class="text-xl font-bold mb-1">Silence in Echo</h4>
+<p class="text-on-surface-variant font-medium mb-4">by Sarah Chen</p>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold tracking-widest uppercase">Popular Choice</span>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="bg-surface-container-low p-6 rounded-lg group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-lg">
+<img alt="Book Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant artistic book cover with swirls of oil-paint style colors in sunset hues, titled 'The Neon Archive'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmi1dS3cRviRvNWoSkuuK9Agft80_4Zp_zfm301dScaxJ3OOllujSG33fwSC_oq5dBr36dmF6QBEICIk54HsNdokHPBpeGZh8T0cai7_E-sw_b-lJI2Ne57Cj5ed_wrtqXanHvpGQS26hnLqJ7s8XHJi6L0zpxdNMdDwsS7kyLZ3XuqwkhXGYNf5tLTxrgOIMj09DdnwkxmiwdufxnaSoyzU1_sIHGRRE0OrhVNNarOdxdE8yAZwrQUbryjccOiQc6gEIQEIqYmKk"/>
+</div>
+<h4 class="text-xl font-bold mb-1">The Neon Archive</h4>
+<p class="text-on-surface-variant font-medium mb-4">by Julian Vane</p>
+<div class="flex items-center gap-2">
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">READING</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-16 px-8 mt-24">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<span class="text-xl font-black bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] bg-clip-text text-transparent">Lumina Library</span>
+<p class="text-on-surface-variant mt-2 max-w-xs">Curating the world's finest knowledge in a premium digital space.</p>
+</div>
+<div class="flex gap-12 text-sm font-bold text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="public">public</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="chat">chat</span>
+</button>
+</div>
+</div>
+<div class="mt-12 text-center text-xs text-on-surface-variant/50 font-medium">
+            © 2024 Lumina Library. All rights reserved.
+        </div>
+</footer>
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Book | Lumina Library Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#004c69",
+              "on-primary-fixed": "#23005c",
+              "tertiary": "#006387",
+              "tertiary-container": "#007da9",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#001e2c",
+              "surface-container-low": "#edf4ff",
+              "on-secondary-fixed-variant": "#85145a",
+              "inverse-on-surface": "#e8f2ff",
+              "primary-fixed-dim": "#d0bcff",
+              "inverse-primary": "#d0bcff",
+              "surface-container": "#e4effd",
+              "surface-variant": "#d9e3f1",
+              "on-background": "#121d26",
+              "on-surface-variant": "#494454",
+              "secondary": "#a43073",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#e9ddff",
+              "surface-dim": "#d1dbe8",
+              "outline": "#7b7486",
+              "surface-container-high": "#dfe9f7",
+              "on-secondary": "#ffffff",
+              "background": "#f7f9ff",
+              "on-primary-container": "#fffbff",
+              "secondary-fixed": "#ffd8e7",
+              "surface-tint": "#6d3bd7",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#3d0026",
+              "on-surface": "#121d26",
+              "outline-variant": "#cbc3d7",
+              "surface-bright": "#f7f9ff",
+              "surface-container-highest": "#d9e3f1",
+              "on-tertiary-container": "#fcfcff",
+              "on-primary-fixed-variant": "#5516be",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#ffafd3",
+              "inverse-surface": "#27313c",
+              "on-secondary-container": "#76014e",
+              "secondary-container": "#fc79bd",
+              "primary-container": "#8455ef",
+              "tertiary-fixed": "#c4e7ff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#7bd0ff",
+              "on-error-container": "#93000a",
+              "primary": "#6b38d4",
+              "surface": "#f7f9ff",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 bg-gradient-to-b from-[#6b38d4] to-[#4c22a3] h-screen w-64 rounded-r-[3rem] shadow-2xl z-50">
+<div class="px-8 mb-12">
+<div class="text-xl font-bold text-white mb-1">Lumina Admin</div>
+<div class="text-white/60 text-xs font-medium uppercase tracking-widest">Curator Portal</div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 text-white/70 hover:text-white px-4 py-3 hover:bg-white/10 transition-colors rounded-xl group ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-plus-jakarta text-base">Dashboard</span>
+</a>
+<!-- Add Book (ACTIVE) -->
+<a class="flex items-center gap-3 bg-white/20 text-white border-l-4 border-[#F472B6] px-4 py-3 rounded-r-full group ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="add_box" style="font-variation-settings: 'FILL' 1;">add_box</span>
+<span class="font-plus-jakarta text-base font-bold">Add Book</span>
+</a>
+<!-- Manage Books -->
+<a class="flex items-center gap-3 text-white/70 hover:text-white px-4 py-3 hover:bg-white/10 transition-colors rounded-xl group ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-plus-jakarta text-base">Manage Books</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="flex items-center gap-3 px-4 py-4 mb-4 bg-white/5 rounded-2xl">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="Professional portrait of a library administrator with a friendly expression in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5_QdyOWhOO65Uy4lzl1zMMpnPyeFLQM_XUb5qwJH2BrMRGYRBVp6Vg01DqNGvxzGhVIUk5f7inaAuNDdIsTNTqXO3DtK-mWpTcq0J5vZhxzL6RqWSYNQwmN4g_X0Ra9wHaaHIkC34_jQ6OLgVThevpkHglz1tArByuAkK_MmQ7RD32DcCwTc_QO_onJ49iS9kQvAKs_L8sFrxIhJLaC2gls43Is3T_--NRK6PP3TFayA1kYtzuIut0ffPmbDtjUlOZG58NYGZZWM"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-bold">Admin User</span>
+<span class="text-white/50 text-xs">Principal Curator</span>
+</div>
+</div>
+<a class="flex items-center gap-3 text-white/70 hover:text-white px-4 py-3 hover:bg-white/10 transition-colors rounded-xl group ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-plus-jakarta text-base">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-12 lg:p-20">
+<!-- Header Section -->
+<header class="mb-16">
+<h1 class="text-5xl font-extrabold tracking-tight text-on-surface mb-4">
+                Curate a <span class="bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] bg-clip-text text-transparent">New Masterpiece</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl font-body">
+                Expand the Lumina archive by adding high-quality metadata and assets for the latest literary additions.
+            </p>
+</header>
+<!-- Form Section -->
+<section class="max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_-12px_rgba(18,29,38,0.08)] p-10 lg:p-14">
+<form class="space-y-10">
+<!-- Title & Author Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col space-y-3">
+<label class="text-sm font-bold text-primary tracking-wide uppercase px-1">Book Title</label>
+<input class="w-full px-6 py-4 bg-surface-container-low border border-[#E5E7EB] rounded-md focus:outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary/40 transition-all duration-300 placeholder:text-slate-400" placeholder="e.g. The Architecture of Light" type="text"/>
+</div>
+<div class="flex flex-col space-y-3">
+<label class="text-sm font-bold text-primary tracking-wide uppercase px-1">Primary Author</label>
+<input class="w-full px-6 py-4 bg-surface-container-low border border-[#E5E7EB] rounded-md focus:outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary/40 transition-all duration-300 placeholder:text-slate-400" placeholder="e.g. Julian V. Sterling" type="text"/>
+</div>
+</div>
+<!-- Description Textarea -->
+<div class="flex flex-col space-y-3">
+<label class="text-sm font-bold text-primary tracking-wide uppercase px-1">Detailed Description</label>
+<textarea class="w-full px-6 py-4 bg-surface-container-low border border-[#E5E7EB] rounded-md focus:outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary/40 transition-all duration-300 placeholder:text-slate-400 resize-none" placeholder="Provide an editorial summary of the book's core themes and narrative..." rows="5"></textarea>
+</div>
+<!-- Upload Section Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Cover Upload -->
+<div class="flex flex-col space-y-3">
+<label class="text-sm font-bold text-primary tracking-wide uppercase px-1">Cover Imagery</label>
+<div class="relative group cursor-pointer h-56 border-2 border-dashed border-outline-variant/30 bg-surface-container-low rounded-xl flex flex-col items-center justify-center hover:bg-surface-container hover:border-primary/40 transition-all duration-300">
+<div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="add_photo_alternate">add_photo_alternate</span>
+</div>
+<span class="text-on-surface font-semibold">Upload Cover Art</span>
+<span class="text-xs text-on-surface-variant mt-1">PNG, JPG up to 10MB</span>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+</div>
+<!-- File Upload -->
+<div class="flex flex-col space-y-3">
+<label class="text-sm font-bold text-primary tracking-wide uppercase px-1">Manuscript / File</label>
+<div class="relative group cursor-pointer h-56 border-2 border-dashed border-outline-variant/30 bg-surface-container-low rounded-xl flex flex-col items-center justify-center hover:bg-surface-container hover:border-primary/40 transition-all duration-300">
+<div class="bg-white p-4 rounded-full shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="upload_file">upload_file</span>
+</div>
+<span class="text-on-surface font-semibold">Upload Digital Asset</span>
+<span class="text-xs text-on-surface-variant mt-1">PDF, EPUB up to 50MB</span>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-sm italic">Changes will be reviewed by the chief librarian before publishing.</p>
+</div>
+<button class="w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-[#8B5CF6] to-[#F472B6] text-white font-bold text-lg rounded-full shadow-xl hover:shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all duration-300" type="submit">
+                            Register Book to Library
+                        </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Decorative Background Element -->
+<div class="fixed -bottom-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -z-10"></div>
+<div class="fixed -top-24 right-1/4 w-64 h-64 bg-secondary/5 rounded-full blur-[80px] -z-10"></div>
+</main>
+</body></html>
