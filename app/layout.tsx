@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         className={`${plusJakartaSans.variable} ${manrope.variable} bg-surface font-sans text-on-surface antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

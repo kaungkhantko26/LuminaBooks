@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { signOutAdmin } from "@/app/admin/actions";
+
 type AdminShellProps = {
   title: string;
   description: string;
@@ -48,6 +50,16 @@ export function AdminShell({
             CRUD actions are disabled until Supabase env vars are set and the admin account matches
             the allowlist.
           </p>
+          {!previewMode ? (
+            <form action={signOutAdmin} className="mt-5">
+              <button
+                type="submit"
+                className="w-full rounded-full bg-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/25"
+              >
+                Sign out
+              </button>
+            </form>
+          ) : null}
         </div>
       </aside>
 

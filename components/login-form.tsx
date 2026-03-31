@@ -1,47 +1,14 @@
-"use client";
-
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
 
-import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+import { signInAdmin } from "@/app/admin/actions";
 
-export function LoginForm({ previewMode }: { previewMode: boolean }) {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setError(null);
-
-    const supabase = createSupabaseBrowserClient();
-
-    if (!supabase) {
-      setError("Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to enable login.");
-      return;
-    }
-
-    setLoading(true);
-
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-
-    setLoading(false);
-
-    if (signInError) {
-      setError(signInError.message);
-      return;
-    }
-
-    router.replace("/admin/dashboard");
-    router.refresh();
-  }
-
+export function LoginForm({
+  previewMode,
+  errorMessage
+}: {
+  previewMode: boolean;
+  errorMessage?: string;
+}) {
   return (
     <div className="grid min-h-screen bg-surface lg:grid-cols-[1.05fr_0.95fr]">
       <section className="hidden bg-gradient-to-br from-[#6b38d4] via-[#7c4be0] to-[#f472b6] p-12 text-white lg:flex lg:flex-col lg:justify-between">
@@ -87,15 +54,14 @@ export function LoginForm({ previewMode }: { previewMode: boolean }) {
             </div>
           ) : null}
 
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form className="space-y-5" action={signInAdmin}>
             <label className="block">
               <span className="mb-2 block text-sm font-bold uppercase tracking-[0.22em] text-primary">
                 Email
               </span>
               <input
                 type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                name="email"
                 placeholder="admin@example.com"
                 className="h-14 w-full rounded-[1.25rem] border-0 bg-surface-container-low px-5 outline-none ring-0 transition focus:bg-white focus:shadow-sm"
                 required
@@ -107,24 +73,21 @@ export function LoginForm({ previewMode }: { previewMode: boolean }) {
               </span>
               <input
                 type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                name="password"
                 placeholder="Your secure password"
                 className="h-14 w-full rounded-[1.25rem] border-0 bg-surface-container-low px-5 outline-none ring-0 transition focus:bg-white focus:shadow-sm"
                 required
               />
             </label>
 
-            {error ? (
-              <div className="rounded-[1.25rem] bg-rose-50 px-4 py-3 text-sm text-rose-700">{error}</div>
+            {errorMessage ? (
+              <div className="rounded-[1.25rem] bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                {errorMessage}
+              </div>
             ) : null}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full rounded-full bg-brand-gradient px-6 py-4 font-bold text-white shadow-glow transition hover:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {loading ? "Signing in..." : "Enter dashboard"}
+            <button type="submit" className="w-full rounded-full bg-brand-gradient px-6 py-4 font-bold text-white shadow-glow transition hover:scale-[0.99]">
+              Enter dashboard
             </button>
           </form>
         </div>
