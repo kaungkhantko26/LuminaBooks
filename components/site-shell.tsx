@@ -20,9 +20,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
               <a href="#catalog" className="transition hover:text-primary">
                 Catalog
               </a>
-              <a href="#community" className="transition hover:text-primary">
-                Community
-              </a>
             </nav>
           </div>
         </div>

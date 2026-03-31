@@ -87,7 +87,7 @@ export default async function BookDetailPage({
               ) : null}
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div>
               <a
                 href={book.file_url}
                 target="_blank"
@@ -96,10 +96,6 @@ export default async function BookDetailPage({
               >
                 Download now
               </a>
-              <p className="text-sm font-medium text-on-surface-variant">
-                If you keep `book-files` private later, replace public URLs with a signed download
-                flow in a route handler.
-              </p>
             </div>
           </div>
         </section>

@@ -91,8 +91,8 @@ export function DiscoverBooks({ books }: { books: Book[] }) {
                 Curated for discovery
               </h2>
               <p className="mt-3 text-base text-on-surface-variant">
-                The home page already supports client-side search and filtering. Swap mock data for
-                Supabase credentials and the same UI begins reading from your live `books` table.
+                Explore a refined catalog of titles selected for readers who care about depth,
+                design, and a calm reading experience.
               </p>
             </div>
             <div className="rounded-full bg-surface-container px-5 py-2 text-sm font-semibold text-on-surface-variant">
@@ -114,37 +114,6 @@ export function DiscoverBooks({ books }: { books: Book[] }) {
               </p>
             </div>
           ) : null}
-        </div>
-      </section>
-
-      <section id="community" className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-10 rounded-[3rem] bg-surface-container-low px-8 py-12 lg:flex-row lg:items-center lg:justify-between lg:px-14">
-          <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-primary">
-              Build Order
-            </p>
-            <h2 className="mt-3 font-heading text-3xl font-extrabold text-on-surface md:text-4xl">
-              Public UI, auth, admin CRUD, then polish.
-            </h2>
-            <p className="mt-4 text-base text-on-surface-variant">
-              This scaffold follows that order, so you can connect Supabase once and keep building
-              instead of reworking the routing later.
-            </p>
-          </div>
-          <div className="grid gap-4 text-sm font-medium text-on-surface-variant sm:grid-cols-3">
-            <div className="rounded-[2rem] bg-white px-5 py-6 shadow-sm">
-              <p className="font-heading text-2xl font-bold text-primary">01</p>
-              <p className="mt-2">Connect schema, buckets, and auth.</p>
-            </div>
-            <div className="rounded-[2rem] bg-white px-5 py-6 shadow-sm">
-              <p className="font-heading text-2xl font-bold text-primary">02</p>
-              <p className="mt-2">Use admin pages to add and edit books.</p>
-            </div>
-            <div className="rounded-[2rem] bg-white px-5 py-6 shadow-sm">
-              <p className="font-heading text-2xl font-bold text-primary">03</p>
-              <p className="mt-2">Publish titles to the public catalog.</p>
-            </div>
-          </div>
         </div>
       </section>
     </main>

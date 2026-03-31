@@ -4,15 +4,19 @@
 
 Run the SQL in [`supabase/schema.sql`](../supabase/schema.sql).
 
-## 2. Create storage buckets
+## 2. Storage buckets
 
-Create these buckets in Supabase Storage:
+The SQL schema now creates these buckets automatically:
 
 - `book-covers`
 - `book-files`
 
 For the current starter, both buckets can be public. If you want private files later, keep
 `book-files` private and swap download links to signed URLs generated in a route handler.
+
+If your project already exists and you are seeing `Bucket not found`, re-run the latest
+[`supabase/schema.sql`](../supabase/schema.sql) in the Supabase SQL editor. That script now also
+creates the buckets and storage policies.
 
 ## 3. Create the admin account
 
