@@ -48,6 +48,33 @@ for delete
 to authenticated
 using (true);
 
+create table if not exists public.book_requests (
+  id uuid primary key default gen_random_uuid(),
+  requester_name text not null,
+  requester_email text not null,
+  requested_title text not null,
+  requested_author text,
+  note text,
+  status text not null default 'pending',
+  created_at timestamptz not null default timezone('utc', now())
+);
+
+alter table public.book_requests enable row level security;
+
+drop policy if exists "Anyone can submit book requests" on public.book_requests;
+create policy "Anyone can submit book requests"
+on public.book_requests
+for insert
+to anon, authenticated
+with check (true);
+
+drop policy if exists "Authenticated users can read book requests" on public.book_requests;
+create policy "Authenticated users can read book requests"
+on public.book_requests
+for select
+to authenticated
+using (true);
+
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values (
   'book-covers',

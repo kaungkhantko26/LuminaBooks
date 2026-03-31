@@ -3,6 +3,8 @@ import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
 
+import { siteConfig } from "@/lib/site";
+
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -16,8 +18,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: "LuminaBooks",
-  description: "A mini SaaS-style book platform with a public catalog and admin CMS.",
+  description: siteConfig.description,
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -33,6 +36,9 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "default",
     title: "LuminaBooks"
+  },
+  alternates: {
+    canonical: "/"
   }
 };
 

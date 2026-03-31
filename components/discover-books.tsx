@@ -3,6 +3,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 
 import { BookCard } from "@/components/book-card";
+import { RequestBookForm } from "@/components/request-book-form";
 import type { Book } from "@/lib/types";
 
 export function DiscoverBooks({ books }: { books: Book[] }) {
@@ -122,6 +123,50 @@ export function DiscoverBooks({ books }: { books: Book[] }) {
               </p>
             </div>
           ) : null}
+        </div>
+      </section>
+
+      <section id="request" className="px-6 pb-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="rounded-[2.5rem] bg-brand-gradient p-8 text-white shadow-glow lg:p-10">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-white/70">
+              Reader Requests
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-extrabold leading-tight md:text-5xl">
+              Ask Lumina to source the next book for the shelf.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-8 text-white/85">
+              If a title is missing from the archive, send a request with the book name, author,
+              and why it matters. The team can review demand before curating the next release.
+            </p>
+            <div className="mt-8 rounded-[2rem] bg-white/12 p-5 backdrop-blur">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/70">
+                What to include
+              </p>
+              <ul className="mt-4 space-y-3 text-sm text-white/85">
+                <li>The exact title you want added</li>
+                <li>The author or edition if you know it</li>
+                <li>Why it belongs in the catalog</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="rounded-[2.5rem] bg-surface-container-low p-8 shadow-float lg:p-10">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-secondary">
+              Submit Request
+            </p>
+            <h3 className="mt-3 font-heading text-3xl font-extrabold text-on-surface">
+              Request a new book
+            </h3>
+            <p className="mt-3 text-base text-on-surface-variant">
+              Send the request directly from the site. If the public inbox is not available yet,
+              the form will open your email app as a backup.
+            </p>
+
+            <div className="mt-8">
+              <RequestBookForm />
+            </div>
+          </div>
         </div>
       </section>
     </main>
