@@ -63,18 +63,12 @@ export default async function BookDetailPage({
               <p className="mt-4 text-2xl font-medium text-primary">by {book.author}</p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-[2rem] bg-surface-container-lowest p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface-variant">
                   Language
                 </p>
                 <p className="mt-2 font-heading text-xl font-bold text-on-surface">{book.language}</p>
-              </div>
-              <div className="rounded-[2rem] bg-surface-container-lowest p-5 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface-variant">
-                  Length
-                </p>
-                <p className="mt-2 font-heading text-xl font-bold text-on-surface">{book.pages} pages</p>
               </div>
               <div className="rounded-[2rem] bg-surface-container-lowest p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface-variant">
